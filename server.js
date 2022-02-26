@@ -1,6 +1,7 @@
 
 const db = require('./db/connection');
 const inquirer = require('inquirer');
+const cTable = require('console.table');
 
 //start server after DB connection
 db.connect(err => {
@@ -12,14 +13,45 @@ const initResponseCheck = function (response) {
     switch (response) {
         case 'view all departments':
             db.query(`SELECT * FROM department;`, (err, rows) => {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
                 console.table(rows);
+                initApp();
             });
             break;
         case 'view all roles':
-            console.log(2)
+            db.query(`SELECT role.title, role.id, department.name AS department_name, role.salary
+            FROM role
+            LEFT JOIN department
+            ON role.department_id = department.id`, (err, rows) => {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                console.table(rows);
+                initApp();
+            })
             break;
         case 'view all employees':
-            console.log(3)
+            db.query(`SELECT e.id, e.first_name, e.last_name,
+            role.title as job_title, department.name as department,
+            role.salary,
+            CONCAT(e.first_name, ', ', e.last_name) as manager
+            FROM employee e
+            LEFT JOIN role ON e.role_id = role.id
+            LEFT JOIN department ON role.department_id = department.id
+            LEFT JOIN employee m ON e.manager_id = m.id
+            `
+            , (err, rows) => {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                console.table(rows);
+                initApp();
+            })
             break;
         case 'add a department':
             console.log(4)
