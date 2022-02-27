@@ -1,7 +1,8 @@
-
 const db = require('./db/connection');
 const inquirer = require('inquirer');
 const cTable = require('console.table');
+
+let deptChoicesArray = ['Operations', 'Finance', 'Legal', 'HR', 'Marketing'];
 
 //start server after DB connection
 db.connect(err => {
@@ -54,10 +55,84 @@ const initResponseCheck = function (response) {
             })
             break;
         case 'add a department':
-            console.log(4)
+            inquirer.prompt({
+                type: 'input',
+                name: 'addDept',
+                message: "What is the name of the department you'd like to add?",
+                validate: deptInput => {
+                    if (deptInput) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            })
+            .then((deptNameObj) => {
+                deptChoicesArray.push(deptNameObj.addDept);
+                db.query(`INSERT INTO department(name)
+                VALUES ('${deptNameObj.addDept}')`, (err, rows) => {
+                    if (err) {
+                        console.log(err);
+                        return;
+                    }
+                    initApp();
+                })
+            });
             break;
         case 'add a role':
-            console.log(5)
+            inquirer.prompt([
+
+                {
+                    type: 'input',
+                    name: 'roleName',
+                    message: "What is the name of the role you'd like to add?",
+                    validate: roleInput => {
+                        if (roleInput) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                },
+                {
+                    type: 'number',
+                    name: 'salary',
+                    message: "What is this role's salary?",
+                    validate: salInput => {
+                        if (typeof salInput === 'number') {
+                            return true;
+                        } else {
+                            console.log("Please enter only numbers.")
+                            return false;
+                        }
+                    }
+                },
+                {
+                    type: 'checkbox',
+                    name: 'department',
+                    message: 'To which department does this role belong?',
+                    choices: deptChoicesArray,
+                    validate: roleDeptInput => {
+                        if (roleDeptInput[1]) {
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    }
+                }
+        ])
+        .then((roleAnsObj) => {
+            const {roleName, salary, department} = roleAnsObj;
+            const deptToInsert = (deptChoicesArray.indexOf(department[0])) + 1;
+            db.query(`INSERT INTO role(title, salary, department_id)
+                VALUES ('${roleName}', '${salary}', '${deptToInsert}')`, (err, rows) => {
+                    if (err) {
+                        console.log(err);
+                        return;
+                    }
+                    initApp();
+                })
+        });
             break;
         case 'add an employee':
             console.log(6)
