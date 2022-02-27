@@ -39,11 +39,11 @@ const initResponseCheck = function (response) {
             db.query(`SELECT e.id, e.first_name, e.last_name,
             role.title as job_title, department.name as department,
             role.salary,
-            CONCAT(e.first_name, ', ', e.last_name) as manager
+            CONCAT(m.first_name, ', ', m.last_name) as manager
             FROM employee e
             LEFT JOIN role ON e.role_id = role.id
             LEFT JOIN department ON role.department_id = department.id
-            LEFT JOIN employee m ON e.manager_id = m.id
+            LEFT JOIN employee m ON m.id = e.manager_id
             `
             , (err, rows) => {
                 if (err) {
@@ -135,8 +135,66 @@ const initResponseCheck = function (response) {
         });
             break;
         case 'add an employee':
-            console.log(6)
-            break;
+            inquirer.prompt([
+
+                {
+                    type: 'input',
+                    name: 'firstName',
+                    message: "What is the employee's first name?",
+                    validate: fnInput => {
+                        if (fnInput) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                },
+                {
+                    type: 'input',
+                    name: 'lastName',
+                    message: "What is the employee's last name?",
+                    //no validation because people don't always have last names
+                },
+                {
+                    type: 'number',
+                    name: 'roleId',
+                    message: "What is the employee's role_id? (You can run the view all roles option at the main menu to view role id's)",
+                    validate: roleInput => {
+                        if (typeof roleInput === 'number') {
+                            return true;
+                        } else {
+                            console.log("Only numeric values are accepted.")
+                            return false;
+                        }
+                    }
+                },
+                {
+                    type: 'number',
+                    name: 'manEmpId',
+                    message: "What is the employee's manager's employee_id? (You can run the view all employees option at the main menu to view their manager's name and emp id)",
+                    validate: manEmpInput => {
+                        if (typeof manEmpInput === 'number') {
+                            return true;
+                        } else {
+                            console.log("Only numeric values are accepted.")
+                            return false;
+                        }
+                    }
+                }
+        ])
+        .then((empAnsObj) => {
+            console.log(empAnsObj);
+            const {firstName, lastName, roleId, manEmpId} = empAnsObj;
+            db.query(`INSERT INTO employee(first_name, last_name, role_id, manager_id)
+                VALUES ('${firstName}', '${lastName}', '${roleId}', '${manEmpId}')`, (err, rows) => {
+                    if (err) {
+                        console.log(err);
+                        return;
+                    }
+                    initApp();
+                })
+        });
+        break;
         case 'update an employee role':
             console.log(7)
             break;
