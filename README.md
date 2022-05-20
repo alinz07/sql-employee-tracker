@@ -11,17 +11,21 @@
 To create a command-line app that helps manage a company's employee database using Node.js, Inquirer and mySQL2. You can view or add departments, roles, or employees and update an employee.
 <br/>
 
-## **Instructions for downloading and running**
+## **Instructions for using the application**
 
 -Clone the repo locally<br/>
 
--Log into mySQL using the username root and password Caradhras100! with the command<br/>
+-Install MySQL if you don't already have it on your machine and configured. A few resources if you need help:<br/>
+a walkthrough provided by the University of Milwaukee: Extended Campus coding bootcamp: https://coding-boot-camp.github.io/full-stack/mysql/mysql-installation-guide <br/>
+for windows: https://dev.mysql.com/downloads/mysql/ <br/>
 
-`mysql -u root -p`<br/>
+-In the root directory of the local repo, connect to MySQL with the following command:<br/>
 
-then enter the case-sensitive password Caradhras100!<br/>
+`mysql -u <username> -p`<br/>
 
--To create and access the database, from the mysql> command line, run the following two commands:<br/>
+then enter the case-sensitive password you created when configuring MySQL<br/>
+
+-To create and access the database and create the tables, run the following two commands from the mysql> command line:<br/>
 
 `source db/db.sql`<br/>
 
