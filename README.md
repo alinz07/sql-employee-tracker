@@ -13,19 +13,32 @@ To create a command-line app that helps manage a company's employee database usi
 
 ## **Instructions for downloading and running**
 
--Clone the repo locally
--Log into mySQL using the username root and password Caradhras100! with the command
-`mysql -u root -p`
-then enter the case-sensitive password Caradhras100!
--To create and access the database, from the mysql> command line, run the following two commands:
-`source db/db.sql`
-`source db/schema.sql`
--If you don't want to use seed data, skip to the next step. To seed: run the following command:
-`source db/seeds.sql`
--To return to the terminal command line, run the commmand:
-`quit`
--To run the application type the following command:
-`node server.js`
+-Clone the repo locally<br/>
+
+-Log into mySQL using the username root and password Caradhras100! with the command<br/>
+
+`mysql -u root -p`<br/>
+
+then enter the case-sensitive password Caradhras100!<br/>
+
+-To create and access the database, from the mysql> command line, run the following two commands:<br/>
+
+`source db/db.sql`<br/>
+
+`source db/schema.sql`<br/>
+
+-If you don't want to use seed data, skip to the next step. To seed: run the following command:<br/>
+
+`source db/seeds.sql`<br/>
+
+-To return to the terminal command line, run the commmand:<br/>
+
+`quit`<br/>
+
+-To run the application type the following command:<br/>
+
+`node server.js`<br/>
+
 -Follow the prompts and enjoy!
 <br/>
 
