@@ -6,9 +6,9 @@
 
 <br/>
 
-## **Motivation**
+## **Motivation and Code Overview**
 
-To create a command-line app that helps manage a company's employee database using Node.js, Inquirer and mySQL2. You can view or add departments, roles, or employees and update an employee.
+To create a command-line app that helps manage a company's employee database using Node.js, Inquirer and mySQL2. You can view or add departments, roles, or employees and update an employee. My goal with this application was to perfect asynchronous javascript so I kept it all in one server.js file. In an ideal application, it would be modularized by the prompt chosen by the user. Meaning each of the seven actions you can take would be coded into a different .js file. Right now it uses switch statements. Other than the needed file for node packages, there is only the database folder that contains the connection, schema and seeds.
 <br/>
 
 ## **Instructions for using the application**
