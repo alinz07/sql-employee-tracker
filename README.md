@@ -1,4 +1,4 @@
-# sql-employee-tracker
+# SQL Command-Line Employee Tracker
 
 <br/>
 
@@ -9,6 +9,7 @@
 ## **Motivation and Code Overview**
 
 To create a command-line app that helps manage a company's employee database using Node.js, Inquirer and mySQL2. You can view or add departments, roles, or employees and update an employee. My goal with this application was to perfect asynchronous javascript so I kept it all in one server.js file. In an ideal application, it would be modularized by the prompt chosen by the user. Meaning each of the seven actions you can take would be coded into a different .js file. Right now it uses switch statements. Other than the needed file for node packages, there is only the database folder that contains the connection, schema and seeds.
+
 <br/>
 
 ## **Instructions for using the application**
@@ -44,6 +45,7 @@ then enter the case-sensitive password you created when configuring MySQL<br/>
 `node server.js`<br/>
 
 -Follow the prompts and enjoy!
+
 <br/>
 
 ## **Table of Contents**
@@ -52,7 +54,6 @@ then enter the case-sensitive password you created when configuring MySQL<br/>
 [Things I learned](#things-i-learned) <br/>
 [What makes this project stand out?](#what-makes-this-project-stand-out) <br/>
 [Challenge Criteria](#challenge-criteria)<br/>
-[Screenshot of Web Application](#screenshot-of-web-application)<br/>
 [How to Contribute](#how-to-contribute)<br/>
 [Credits](#credits)<br/>
 
@@ -61,12 +62,14 @@ then enter the case-sensitive password you created when configuring MySQL<br/>
 ## **What Problem does this solve and how was a solution accomplished?**
 
 My employee tracker app allows non-developers to easily view and intereact with information stored in a database. The app is a mix of inquirer prompts, whose returned answer objects are then used to query the database. I used an inquirer prompt to create an initial menu to ask what the user wants to do. From there a switch statement manages the flow of the app. No matter what the user chooses, they are always brought back to the main menu.
+
 <br/>
 
 ## **Things I learned**
 
 -   There are multiple ways to do a self join. I was having trouble using one way when combining with other left joins; I believe the WHERE statement was throwing off the other left joins. To solve this issue I used a left join as a self join with some help from good ol' google.
 -   The value of constructor functions and classes and modularization. I was short on time, otherwise I would've moved every function and query to separate files because the server.js file is CROWDED.
+
     <br/>
 
 ## **What makes this project stand out?**
@@ -106,17 +109,15 @@ GIVEN a command-line application that accepts user input<br/>
 
 -   WHEN I choose to update an employee role<br/>
     THEN I am prompted to select an employee to update and their new role and this information is updated in the database
+
     <br/>
-
-## **Screenshot of Web Application**
-
-There is a walkthrough video link at the beginning of this README
-<br/>
 
 ## **How to Contribute**
 
 Please feel free to review, refactor and submit a pull request for additional features on my github page: <br/>
 https://github.com/alinz07
+
+<br/>
 
 ### **Credits**
 
