@@ -35,6 +35,8 @@ My employee tracker app allows non-developers to easily view and intereact with 
 -   Console.table
 -   Javascript
 
+</br>
+
 ## **User Story**
 
 AS A business owner
@@ -107,7 +109,9 @@ then enter the case-sensitive password you created when configuring MySQL<br/>
 
 ## **Screenshot**
 
-![Screenshot](./sql-tracker.gif) <br/>
+![Screenshot](./sql-tracker.gif)
+
+<br/>
 
 ## **Things I learned**
 
