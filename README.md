@@ -8,7 +8,7 @@
 
 ## **Table of Contents**
 
-[Motivation and Code Overview?](#motivation-and-code-overview) <br/>
+[Motivation and Code Overview](#motivation-and-code-overview) <br/>
 [Technologies Used](#technologies-used) <br/>
 [User Story](#user-story)<br/>
 [Instructions to Run App](#instructions-to-run-app)<br/>
@@ -73,37 +73,39 @@ GIVEN a command-line application that accepts user input<br/>
 
 ## **Instructions to Run App**
 
--Clone the repo locally<br/>
+1. Clone the repo locally<br/>
 
--Install MySQL if you don't already have it on your machine and configured. A few resources if you need help:<br/>
-a walkthrough provided by the University of Milwaukee: Extended Campus coding bootcamp: https://coding-boot-camp.github.io/full-stack/mysql/mysql-installation-guide <br/>
-for windows: https://dev.mysql.com/downloads/mysql/ <br/>
+2. Ensure you have Node.js installed on your machine. https://nodejs.org/en/download/<br/>
 
--In the root directory of the local repo, connect to MySQL with the following command:<br/>
+3. Install MySQL if you don't already have it on your machine and configured. A few resources if you need help:<br/>
+   a walkthrough provided by the University of Milwaukee: Extended Campus coding bootcamp: https://coding-boot-camp.github.io/full-stack/mysql/mysql-installation-guide <br/>
+   for windows: https://dev.mysql.com/downloads/mysql/ <br/>
+
+4. In the root directory of the local repo, connect to MySQL with the following command:<br/>
 
 `mysql -u <username> -p`<br/>
 
 then enter the case-sensitive password you created when configuring MySQL<br/>
 
--To create and access the database and create the tables, run the following two commands from the mysql> command line:<br/>
+5. To create and access the database and create the tables, run the following two commands from the mysql> command line:<br/>
 
 `source db/db.sql`<br/>
 
 `source db/schema.sql`<br/>
 
--If you don't want to use seed data, skip to the next step. To seed: run the following command:<br/>
+5. If you don't want to use seed data, skip to step 6. To seed: run the following command:<br/>
 
 `source db/seeds.sql`<br/>
 
--To return to the terminal command line, run the commmand:<br/>
+6. To return to the terminal command line, run the commmand:<br/>
 
 `quit`<br/>
 
--To run the application type the following command:<br/>
+7. To run the application type the following command:<br/>
 
 `node server.js`<br/>
 
--Follow the prompts and enjoy!
+8. Follow the prompts and enjoy!
 
 <br/>
 
