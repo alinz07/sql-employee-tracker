@@ -83,27 +83,39 @@ GIVEN a command-line application that accepts user input<br/>
 
 4. In the root directory of the local repo, connect to MySQL with the following command:<br/>
 
-`mysql -u <username> -p`<br/>
+```
+mysql -u <username> -p
+```
 
 then enter the case-sensitive password you created when configuring MySQL<br/>
 
 5. To create and access the database and create the tables, run the following two commands from the mysql> command line:<br/>
 
-`source db/db.sql`<br/>
+```
+source db/db.sql
+```
 
-`source db/schema.sql`<br/>
+```
+source db/schema.sql
+```
 
 5. If you don't want to use seed data, skip to step 6. To seed: run the following command:<br/>
 
-`source db/seeds.sql`<br/>
+```
+source db/seeds.sql
+```
 
 6. To return to the terminal command line, run the commmand:<br/>
 
-`quit`<br/>
+```
+quit
+```
 
 7. To run the application type the following command:<br/>
 
-`node server.js`<br/>
+```
+node server.js
+```
 
 8. Follow the prompts and enjoy!
 
